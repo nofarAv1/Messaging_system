@@ -15,7 +15,7 @@ def create_app():
 
     # routes
     api.add_resource(UsersApi, "/db-api/insert_user/")
-    api.add_resource(MessagesApi, "/db-api/insert_message/")
+    api.add_resource(MessagesApi, "/db-api/insert_message/", "/db-api/all_messages/<string:user>")
 
     # drop old table and create new from modals
     with app.app_context():

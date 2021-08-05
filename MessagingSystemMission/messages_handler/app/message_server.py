@@ -33,9 +33,14 @@ def write_message(data: dict) -> dict:
         return {Constants.RESPONSE: Constants.ERROR_OCCURRED}
 
 
-def get_all_messages(data: dict) -> dict:
-    # TODO: parse from db
-    return {Constants.RESPONSE: "all messages"}
+def get_all_messages(sender: str) -> dict:
+    url_all_messages = Constants.GET_ALL_MESSAGES + sender
+    res = requests.get(url=url_all_messages)
+    if res.status_code == 200:
+        res_as_json = json.loads(res.text)
+        return {Constants.RESPONSE: res_as_json[Constants.MESSAGES_CONTENT]}
+    else:
+        return {Constants.RESPONSE: Constants.FAILED_GET_ALL_MESSAGE}
 
 
 def get_all_unread_messages(data: dict) -> dict:

@@ -1,10 +1,10 @@
 class Constants:
     # FIELDS OF MESSAGES
-    SENDER = "Sender"
-    RECEIVER = "Receiver"
-    SUBJECT = "Subject"
-    MESSAGE = "Message"
-    CREATION_DATE = "Creation_date"
+    SENDER = "sender"
+    RECEIVER = "receiver"
+    SUBJECT = "subject"
+    MESSAGE = "message"
+    CREATION_DATE = "creation_date"
 
     # RESPONSE FIELDS
     RESPONSE = "Response"

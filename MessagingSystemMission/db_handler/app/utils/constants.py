@@ -12,8 +12,9 @@ class Constants:
     # Response status
     STATUS = "Status"
     SUCCESS = "SUCCESS"
-    SENDER_ID = "Sender_id"
-    RECEIVER_ID = "Receiver_id"
+    SENDER_ID = "SenderId"
+    RECEIVER_ID = "ReceiverId"
+
 
 
 

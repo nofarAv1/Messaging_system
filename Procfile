@@ -1,1 +1,1 @@
-web: gunicorn --chdir ./MessagingSystemMission run:app
+web: gunicorn --pythonpath MessagingSystemMission run:app

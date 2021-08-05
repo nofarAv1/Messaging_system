@@ -16,8 +16,12 @@ class Constants:
     MESSAGE_SENT_SUCCESSFULLY = "Message sent successfully"
     ERROR_OCCURRED = "Can't sent message. Try again later"
     SUCCESS = "SUCCESS"
+    SENDER_ID = "Sender_id"
+    RECEIVER_ID = "Receiver_id"
 
     # URLS:
-    UPDATE_URL = "http://localhost:5000/db-api/insert/"
+    INSERT_USER_URL = "http://localhost:5000/db-api/insert_user/"
+    INSERT_MESSAGE_URL = "http://localhost:5000/db-api/insert_message/"
+
 
 

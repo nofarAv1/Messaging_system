@@ -7,10 +7,6 @@ db = SQLAlchemy()
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.String(120), nullable=False)
-    messages_sent = db.relationship("Messages", backref="message_sender", lazy=True,
-                                    foreign_keys='[messages.c.sender_id]')
-    messages_received = db.relationship("Messages", backref="message_receiver", lazy=True,
-                                        foreign_keys='[messages.c.receiver_id]')
 
     def __init__(self, user):
         self.user = user

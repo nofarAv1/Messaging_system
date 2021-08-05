@@ -1,3 +1,4 @@
+import json
 import requests
 from MessagingSystemMission.app.constants import Constants
 from MessagingSystemMission.app.logger.logger import logger
@@ -21,8 +22,17 @@ def write_message(data: dict) -> dict:
         logger.info(f"Sending {sender} message to {receiver} successfully")
         return {Constants.RESPONSE: Constants.MESSAGE_SENT_SUCCESSFULLY_WITHOUT_SUBJECT}
     # Saving the email in DB
-    res = requests.post(url=Constants.UPDATE_URL, json=data)
+    res = requests.post(url=Constants.INSERT_USER_URL, json=data)
     if res.status_code == 200:
+        # Build data for saving message
+        res_as_json = json.loads(res.text)
+        message_data = {
+            Constants.SENDER_ID: res_as_json.get(Constants.SENDER_ID),
+            Constants.RECEIVER_ID: res_as_json.get(Constants.RECEIVER_ID),
+            Constants.SUBJECT: subject,
+            Constants.MESSAGE: message
+        }
+        res_message = requests.post(url=Constants.INSERT_MESSAGE_URL, json=message_data)
         logger.info(f"Sending {sender} message to {receiver} successfully")
         return {Constants.RESPONSE: Constants.MESSAGE_SENT_SUCCESSFULLY + f" to {receiver}"}
     else:

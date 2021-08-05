@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_restful import Api
-from MessagingSystemMission.app.db_handler.db_api import DBApi
 from MessagingSystemMission.app.db_handler.messages_model import db
+from MessagingSystemMission.app.db_handler.users_api import UsersApi
+from MessagingSystemMission.app.db_handler.messages_api import MessagesApi
 
 
 def create_app():
@@ -13,7 +14,8 @@ def create_app():
     db.init_app(app)
 
     # routes
-    api.add_resource(DBApi, "/db-api/insert/")
+    api.add_resource(UsersApi, "/db-api/insert_user/")
+    api.add_resource(MessagesApi, "/db-api/insert_message/")
 
     # drop old table and create new from modals
     with app.app_context():

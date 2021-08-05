@@ -63,7 +63,12 @@ def reading_message() -> dict:
         return {Constants.RESPONSE: Constants.FAILED_GET_UNREAD_MESSAGES}
 
 
-def deleting_message(data: dict) -> dict:
-    raise NotImplementedError
+def deleting_message(user_id: str, owner: str) -> dict:
+    url_for_delete = Constants.DELETE_MESSAGE + user_id + "/" + owner
+    res = requests.get(url=url_for_delete)
+    if res.status_code == 200:
+        return {Constants.RESPONSE: Constants.MESSAGE_DELETE_SUCCESSFULLY}
+    else:
+        return {Constants.RESPONSE: Constants.FAILED_DELETE_MESSAGE}
 
 

@@ -5,6 +5,7 @@ from MessagingSystemMission.db_handler.app.resources.users_api import UsersApi
 from MessagingSystemMission.db_handler.app.resources.all_message_api import GetMessageApi
 from MessagingSystemMission.db_handler.app.resources.read_message_api import ReadMessageApi
 from MessagingSystemMission.db_handler.app.resources.unread_message_api import UnreadMessageApi
+from MessagingSystemMission.db_handler.app.resources.delete_message_api import DeleteMessageApi
 from MessagingSystemMission.db_handler.app.resources.saving_messages_api import SavingMessageApi
 
 
@@ -22,6 +23,7 @@ def create_app():
     api.add_resource(GetMessageApi, "/db-api/all_messages/<string:user>")
     api.add_resource(UnreadMessageApi, "/db-api/unread_messages/<string:user>")
     api.add_resource(ReadMessageApi, "/db-api/read_message/")
+    api.add_resource(DeleteMessageApi, "/db-api/delete_message/<string:user>/<string:owner>")
 
     # drop old table and create new from modals
     with app.app_context():

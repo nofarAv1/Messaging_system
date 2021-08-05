@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath MessagingSystemMission run:app
+web: gunicorn MessagingSystemMission.app

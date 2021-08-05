@@ -43,8 +43,14 @@ def get_all_messages(sender: str) -> dict:
         return {Constants.RESPONSE: Constants.FAILED_GET_ALL_MESSAGE}
 
 
-def get_all_unread_messages(data: dict) -> dict:
-    raise NotImplementedError
+def get_all_unread_messages(sender: str) -> dict:
+    url_all_unread_messages = Constants.GET_ALL_UNREAD_MESSAGE + sender
+    res = requests.get(url=url_all_unread_messages)
+    if res.status_code == 200:
+        res_as_json = json.loads(res.text)
+        return {Constants.RESPONSE: res_as_json[Constants.MESSAGES_CONTENT]}
+    else:
+        return {Constants.RESPONSE: Constants.FAILED_GET_UNREAD_MESSAGES}
 
 
 def reading_message(data: dict) -> dict:

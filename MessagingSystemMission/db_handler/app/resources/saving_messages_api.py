@@ -11,7 +11,7 @@ parser.add_argument(Constants.SUBJECT, type=str, help='The subject of the messag
 parser.add_argument(Constants.MESSAGE, type=str, help='The message content')
 
 
-class MessagesApi(Resource):
+class SavingMessageApi(Resource):
     def post(self):
         post_args = parser.parse_args()
         sender = User.query.filter_by(user=post_args[DBConstants.SENDER]).first()
@@ -24,27 +24,6 @@ class MessagesApi(Resource):
         db.session.commit()
         return {DBConstants.STATUS: DBConstants.SUCCESS}
 
-    def get(self, user):
-        receiver = User.query.filter_by(user=user).first()
-        messages = Messages.query.filter_by(receiver_id=receiver.id).all()
-        if messages is not None:
-            messages_list = []
-            for message in messages:
-                created_message = message.created_time
-                subject = message.message_subject
-                message_content = message.message
-                sender = message.sender.user
-                messages_list += [{
-                    DBConstants.CREATED_TIME: str(created_message),
-                    DBConstants.SUBJECT: subject,
-                    DBConstants.MESSAGES_CONTENT: message_content,
-                    DBConstants.SENDER: sender
-                }]
-                message.message_read = 1
-                db.session.commit()
-
-        return {DBConstants.STATUS: DBConstants.SUCCESS,
-                DBConstants.MESSAGES_CONTENT: messages_list}
 
 
 

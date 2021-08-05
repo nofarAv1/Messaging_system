@@ -16,6 +16,7 @@ class Constants:
     MESSAGE_SENT_SUCCESSFULLY = "Message sent successfully"
     ERROR_OCCURRED = "Can't sent message. Try again later"
     FAILED_GET_ALL_MESSAGE = "Failed to get all messages, Try again later"
+    FAILED_GET_UNREAD_MESSAGES = "Failed to get unread messages"
     SUCCESS = "SUCCESS"
     SENDER_ID = "Sender_id"
     RECEIVER_ID = "Receiver_id"
@@ -25,6 +26,7 @@ class Constants:
     INSERT_USER_URL = "http://localhost:5000/db-api/insert_user/"
     INSERT_MESSAGE_URL = "http://localhost:5000/db-api/insert_message/"
     GET_ALL_MESSAGES = "http://localhost:5000/db-api/all_messages/"
+    GET_ALL_UNREAD_MESSAGE = "http://localhost:5000/db-api/unread_messages/"
 
 
 

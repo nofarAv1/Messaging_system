@@ -1,7 +1,7 @@
 from flask_restful import Resource, reqparse
-from MessagingSystemMission.app.constants import Constants
-from MessagingSystemMission.app.db_handler.messages_model import db, User
-from MessagingSystemMission.app.db_handler.constants import Constants as DBConstants
+from MessagingSystemMission.app.messages_handler.app.utils.constants import Constants
+from MessagingSystemMission.app.db_handler.app.models.messages_model import db, User
+from MessagingSystemMission.app.db_handler.app.utils.constants import Constants as DBConstants
 
 
 parser = reqparse.RequestParser()

@@ -14,8 +14,10 @@ class User(db.Model):
 
 class Messages(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
-    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # sender_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    sender_id = db.Column(db.Integer, nullable=False)
+    receiver_id = db.Column(db.Integer, nullable=False)
     created_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     message_subject = db.Column(db.String(100), nullable=True)
     message = db.Column(db.String, nullable=False)

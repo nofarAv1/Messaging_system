@@ -1,7 +1,6 @@
 import time
 import datetime
 
-
 def convert_time_human_readable():
     timestamp = time.time()
     value = datetime.datetime.fromtimestamp(timestamp)

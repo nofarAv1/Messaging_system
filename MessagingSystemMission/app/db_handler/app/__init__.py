@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restful import Api
-from MessagingSystemMission.app.db_handler.messages_model import db
-from MessagingSystemMission.app.db_handler.users_api import UsersApi
-from MessagingSystemMission.app.db_handler.messages_api import MessagesApi
+from MessagingSystemMission.app.db_handler.app.models.messages_model import db
+from MessagingSystemMission.app.db_handler.app.resources.users_api import UsersApi
+from MessagingSystemMission.app.db_handler.app.resources.messages_api import MessagesApi
 
 
 def create_app():

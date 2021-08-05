@@ -1,14 +1,15 @@
 import json
 import requests
-from MessagingSystemMission.app.constants import Constants
+from MessagingSystemMission.app.messages_handler.app.utils.constants import Constants
 from MessagingSystemMission.app.logger.logger import logger
 
 
+def saving_user(data: dict):
+    res = requests.post(url=Constants.INSERT_USER_URL, json=data)
+    return res
+
+
 def write_message(data: dict) -> dict:
-    # Case of empty data
-    if not data:
-        logger.error("Get empty data, can't parse message")
-        return {Constants.RESPONSE: Constants.EMPTY_DATA}
     sender = data.get(Constants.SENDER)
     receiver = data.get(Constants.RECEIVER)
     message = data.get(Constants.MESSAGE)
@@ -17,12 +18,8 @@ def write_message(data: dict) -> dict:
     if None in [sender, receiver, message]:
         logger.error("Get unfilled of required fields, can't saving message")
         return {Constants.RESPONSE: Constants.UNFILLED_REQUIRED_FIELDS}
-    # Case of empty subject
-    if "" == subject:
-        logger.info(f"Sending {sender} message to {receiver} successfully")
-        return {Constants.RESPONSE: Constants.MESSAGE_SENT_SUCCESSFULLY_WITHOUT_SUBJECT}
-    # Saving the email in DB
-    res = requests.post(url=Constants.INSERT_USER_URL, json=data)
+    # Saving the user in DB
+    res = saving_user(data)
     if res.status_code == 200:
         # Build data for saving message
         res_as_json = json.loads(res.text)

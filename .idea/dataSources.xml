@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\nofar\Messaging_system\MessagingSystemMission\app\db_handler\app\database.db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="database [2]" uuid="aa036901-4c1b-476e-b4a5-e97416c212be">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\nofar\Messaging_system\MessagingSystemMission\db_handler\app\database.db</jdbc-url>
+    </data-source>
   </component>
 </project>

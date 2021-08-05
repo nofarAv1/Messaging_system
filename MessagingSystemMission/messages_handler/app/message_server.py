@@ -1,7 +1,7 @@
 import json
 import requests
-from MessagingSystemMission.messages_handler.app import Constants
 from MessagingSystemMission.logger.logger import logger
+from MessagingSystemMission.messages_handler.app.utils.constants import Constants
 
 
 def saving_user(data: dict):

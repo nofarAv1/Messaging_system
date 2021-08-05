@@ -27,6 +27,7 @@ class Constants:
     INSERT_MESSAGE_URL = "http://localhost:5000/db-api/insert_message/"
     GET_ALL_MESSAGES = "http://localhost:5000/db-api/all_messages/"
     GET_ALL_UNREAD_MESSAGE = "http://localhost:5000/db-api/unread_messages/"
+    URL_READ_MESSAGE = "http://localhost:5000/db-api/read_message/"
 
 
 

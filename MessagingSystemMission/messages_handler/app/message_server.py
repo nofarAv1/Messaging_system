@@ -53,8 +53,14 @@ def get_all_unread_messages(sender: str) -> dict:
         return {Constants.RESPONSE: Constants.FAILED_GET_UNREAD_MESSAGES}
 
 
-def reading_message(data: dict) -> dict:
-    raise NotImplementedError
+def reading_message() -> dict:
+    url = Constants.URL_READ_MESSAGE
+    res = requests.get(url=url)
+    if res.status_code == 200:
+        res_as_json = json.loads(res.text)
+        return {Constants.RESPONSE: res_as_json[Constants.MESSAGES_CONTENT]}
+    else:
+        return {Constants.RESPONSE: Constants.FAILED_GET_UNREAD_MESSAGES}
 
 
 def deleting_message(data: dict) -> dict:

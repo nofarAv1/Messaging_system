@@ -1,4 +1,7 @@
 class Constants:
+
+    # LOGIN FIELDS
+    USER = "user"
     # FIELDS OF MESSAGES
     SENDER = "sender"
     RECEIVER = "receiver"
@@ -10,6 +13,9 @@ class Constants:
     RESPONSE = "Response"
 
     # TYPES OF RESPONSES
+    REQUEST_TO_LOGIN = "Please Login first!"
+    LOGIN_PASSED_SUCCESSFULLY = "Login passed successfully"
+    FAILED_TO_LOGIN = "Failed to login"
     EMPTY_DATA = "Message don't sent, empty data"
     UNFILLED_REQUIRED_FIELDS = "Message don't send, required fields are not filled"
     MESSAGE_SENT_SUCCESSFULLY_WITHOUT_SUBJECT = "Message sent successfully without subject"

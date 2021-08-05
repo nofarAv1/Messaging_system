@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse
+from flask_restful import Resource
 from MessagingSystemMission.messages_handler.app import message_server
 
 

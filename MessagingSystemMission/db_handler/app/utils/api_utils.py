@@ -3,7 +3,6 @@ from MessagingSystemMission.db_handler.app.utils.constants import Constants as D
 
 
 def get_messages(message: Messages) -> dict:
-    message_dict = []
     created_message = message.created_time
     subject = message.message_subject
     message_content = message.message

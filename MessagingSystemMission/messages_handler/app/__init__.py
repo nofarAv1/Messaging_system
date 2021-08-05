@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from MessagingSystemMission.app.messages_handler.app.resources.write_message_api import WriteApi
+from MessagingSystemMission.messages_handler.app.resources.write_message_api import WriteApi
 
 
 def create_app():

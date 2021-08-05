@@ -1,7 +1,7 @@
 import json
 import requests
-from MessagingSystemMission.app.messages_handler.app.utils.constants import Constants
-from MessagingSystemMission.app.logger.logger import logger
+from MessagingSystemMission.messages_handler.app import Constants
+from MessagingSystemMission.logger.logger import logger
 
 
 def saving_user(data: dict):
@@ -30,10 +30,15 @@ def write_message(data: dict) -> dict:
             Constants.MESSAGE: message
         }
         res_message = requests.post(url=Constants.INSERT_MESSAGE_URL, json=message_data)
-        logger.info(f"Sending {sender} message to {receiver} successfully")
-        return {Constants.RESPONSE: Constants.MESSAGE_SENT_SUCCESSFULLY + f" to {receiver}"}
+        if res_message.status_code == 200:
+            logger.info(f"Sending {sender} message to {receiver} successfully")
+            return {Constants.RESPONSE: Constants.MESSAGE_SENT_SUCCESSFULLY + f" to {receiver}"}
+        else:
+            logger.error("Failed to insert message to db")
+            return {Constants.RESPONSE: Constants.ERROR_OCCURRED}
+
     else:
-        logger.error("Failed to insert email to db")
+        logger.error("Failed to insert user to db")
         return {Constants.RESPONSE: Constants.ERROR_OCCURRED}
 
 

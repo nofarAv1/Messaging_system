@@ -1,8 +1,8 @@
 from flask_restful import Resource, reqparse
-from MessagingSystemMission.app.messages_handler.app import message_server
-from MessagingSystemMission.app.messages_handler.app.utils.constants import Constants
-parser = reqparse.RequestParser()
+from MessagingSystemMission.messages_handler.app import message_server
+from MessagingSystemMission.messages_handler.app.utils.constants import Constants
 
+parser = reqparse.RequestParser()
 parser.add_argument(Constants.SENDER, type=str, help='Unique user of sender')
 parser.add_argument(Constants.RECEIVER, type=str, help='Unique id of receiver')
 parser.add_argument(Constants.SUBJECT, type=str, help='The subject of the message')

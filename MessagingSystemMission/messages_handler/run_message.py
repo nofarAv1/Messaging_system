@@ -1,4 +1,4 @@
-from MessagingSystemMission.app.messages_handler.app import create_app
+from MessagingSystemMission.messages_handler.app import create_app
 
 app = create_app()
 

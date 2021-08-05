@@ -1,7 +1,7 @@
 from flask_restful import Resource, reqparse
-from MessagingSystemMission.app.messages_handler.app.utils.constants import Constants
-from MessagingSystemMission.app.db_handler.app.models.messages_model import db, Messages
-from MessagingSystemMission.app.db_handler.app.utils.constants import Constants as DBConstants
+from MessagingSystemMission.messages_handler.app.utils.constants import Constants
+from MessagingSystemMission.db_handler.app.models.messages_model import db, Messages
+from MessagingSystemMission.db_handler.app.utils.constants import Constants as DBConstants
 
 
 parser = reqparse.RequestParser()
@@ -14,8 +14,8 @@ parser.add_argument(Constants.MESSAGE, type=str, help='The message content')
 class MessagesApi(Resource):
     def post(self):
         post_args = parser.parse_args()
-        message = Messages(sender_id=post_args[DBConstants.SENDER_ID],
-                           receiver_id=post_args[DBConstants.RECEIVER_ID],
+        message = Messages(sender_id=int(post_args[DBConstants.SENDER_ID]),
+                           receiver_id=int(post_args[DBConstants.RECEIVER_ID]),
                            message_subject=post_args[Constants.SUBJECT],
                            message=post_args[Constants.MESSAGE])
         db.session.add(message)

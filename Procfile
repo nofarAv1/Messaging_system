@@ -1,1 +1,1 @@
-web: gunicorn MessagingSystemMission.app
+web: gunicorn --chdir ./MessagingSystemMission run:server

@@ -13,6 +13,10 @@ parser.add_argument(Constants.MESSAGE, type=str, help='The message content')
 
 class SavingMessageApi(Resource):
     def post(self):
+        """
+        This function saving in db a new message from user
+        :return:
+        """
         post_args = parser.parse_args()
         sender = User.query.filter_by(user=post_args[DBConstants.SENDER]).first()
         receiver = User.query.filter_by(user=post_args[DBConstants.RECEIVER]).first()

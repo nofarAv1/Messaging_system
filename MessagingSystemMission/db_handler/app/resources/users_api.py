@@ -11,6 +11,10 @@ parser.add_argument(Constants.RECEIVER, type=str, help='Unique user of receiver'
 
 class UsersApi(Resource):
     def post(self):
+        """
+        This function saving new users in Users table
+        :return: Indication of success saving with user id of the users
+        """
         post_args = parser.parse_args()
         sender = User(user=post_args[Constants.SENDER])
         receiver = User(user=post_args[Constants.RECEIVER])

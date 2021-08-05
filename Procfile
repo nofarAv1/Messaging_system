@@ -1,0 +1,1 @@
+web: gunicorn --chdir ./MessagingSystemMission run:server

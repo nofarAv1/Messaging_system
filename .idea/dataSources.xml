@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="database" uuid="1c960474-5481-44ba-af9c-c5ab613a4075">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\nofar\Messaging_system\MessagingSystemMission\app\db_handler\app\database.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="database [2]" uuid="aa036901-4c1b-476e-b4a5-e97416c212be">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\nofar\Messaging_system\MessagingSystemMission\db_handler\app\database.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

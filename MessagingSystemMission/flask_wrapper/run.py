@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask
 from urllib import request
 
 app = Flask(__name__)
@@ -11,8 +11,7 @@ def home():
 @app.route("/message/")
 @app.route("/message/<path:path>")
 def flask1(path=""):
-    return redirect("http://localhost:5001/" + path)
-    #return request.urlopen("http://localhost:5001/" + path).read()
+    return request.urlopen("http://localhost:5001/" + path).read()
 
 # # flask2 is db_handler
 # @app.route("/db/")

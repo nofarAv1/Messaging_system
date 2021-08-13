@@ -38,12 +38,12 @@ class Constants:
     MESSAGES_CONTENT = "Messages"
 
     # URLS:
-    INSERT_USER_URL = "http://localhost:5000/db-api/insert_user/"
-    INSERT_MESSAGE_URL = "http://localhost:5000/db-api/insert_message/"
-    GET_ALL_MESSAGES_URL = "http://localhost:5000/db-api/all_messages/"
-    GET_ALL_UNREAD_MESSAGE_URL = "http://localhost:5000/db-api/unread_messages/"
-    URL_READ_MESSAGE = "http://localhost:5000/db-api/read_message/"
-    DELETE_MESSAGE = "http://localhost:5000/db-api/delete_message/"
+    INSERT_USER_URL = "http://localhost:5002/db-api/insert_user/"
+    INSERT_MESSAGE_URL = "http://localhost:5002/db-api/insert_message/"
+    GET_ALL_MESSAGES_URL = "http://localhost:5002/db-api/all_messages/"
+    GET_ALL_UNREAD_MESSAGE_URL = "http://localhost:5002/db-api/unread_messages/"
+    URL_READ_MESSAGE = "http://localhost:5002/db-api/read_message/"
+    DELETE_MESSAGE = "http://localhost:5002/db-api/delete_message/"
 
 
 

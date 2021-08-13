@@ -3,7 +3,7 @@
 
 #database
 .db
-database.db
+messages.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

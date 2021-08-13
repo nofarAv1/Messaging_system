@@ -12,7 +12,6 @@ class ResponseBuilder:
             Constants.STATUS_CODE: self.__status_code,
             Constants.STATUS_DESCRIPTION: self.__status_desc,
             Constants.MESSAGES_CONTENT: self.__messages_content
-
         }
         if not response.get(Constants.MESSAGES_CONTENT):
             response.pop(Constants.MESSAGES_CONTENT)

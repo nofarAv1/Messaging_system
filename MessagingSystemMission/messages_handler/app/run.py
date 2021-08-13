@@ -36,41 +36,61 @@ class GetAllMessageApi(Resource):
     def get(self, user):
         if "user" in session:
             messages_list = message_server.get_all_messages(user)
-            res_build = ResponseBuilder(200, Constants.GET_ALL_MESSAGES, messages_list)
-            return jsonify(res_build)
+            res_build = ResponseBuilder(200, Constants.GET_ALL_MESSAGES_SUCCESSFULLY, messages_list)
+            session.pop("user", None)
         else:
             res_build = ResponseBuilder(401, Constants.REQUEST_TO_LOGIN + api.url_for(LoginApi))
-            return res_build
+        return jsonify(res_build.build_response())
 
 
 class WriteApi(Resource):
     def post(self):
         post_args = parser.parse_args()
-        return message_server.write_message(post_args)
+        res = message_server.write_message(post_args)
+        if res == 0:
+            res_build = ResponseBuilder(400, Constants.NOT_A_DATA_REQUIRED_FORMAT)
+        elif res == 1:
+            res_build = ResponseBuilder(400, Constants.UNFILLED_REQUIRED_FIELDS)
+        elif res == 2:
+            res_build = ResponseBuilder(200, Constants.MESSAGE_SENT_SUCCESSFULLY +
+                                        f" to {post_args[Constants.RECEIVER]}")
+        else:
+            res_build = ResponseBuilder(500, Constants.ERROR_OCCURRED_SEND_MESSAGE)
+        return jsonify(res_build.build_response())
 
 
 class AllUnreadMessageApi(Resource):
     def get(self, user):
         if "user" in session:
-            return message_server.get_all_unread_messages(user)
+            messages_list = message_server.get_all_unread_messages(user)
+            res_build = ResponseBuilder(200, Constants.GET_ALL_UNREAD_MESSAGES_SUCCESSFULLY, messages_list)
+            session.pop("user", None)
         else:
-            return {Constants.RESPONSE: "Please login first in: " + api.url_for(LoginApi)}
+            res_build = ResponseBuilder(401, Constants.REQUEST_TO_LOGIN + api.url_for(LoginApi))
+        return jsonify(res_build.build_response())
 
 
 class ReadMessageApi(Resource):
     def get(self):
-        return message_server.reading_message()
+        messages_list = message_server.reading_message()
+        res_build = ResponseBuilder(200, Constants.GET_LAST_MESSAGE_SUCCESSFULLY, messages_list)
+        return jsonify(res_build.build_response())
 
 
 class DeleteMessageApi(Resource):
     def get(self, user, owner):
-        return message_server.deleting_message(user, owner)
+        res = message_server.deleting_message(user, owner)
+        if res == 0:
+            res_build = ResponseBuilder(200, Constants.MESSAGE_DELETE_SUCCESSFULLY)
+        else:
+            res_build = ResponseBuilder(500, Constants.FAILED_DELETE_MESSAGE)
+        return jsonify(res_build.build_response())
 
 
 # Config Routes
 api.add_resource(LoginApi, "/message-system/login")
 api.add_resource(WriteApi, "/message-system/new_message")
-api.add_resource(GetAllMessageApi, "/message-system/all_message/<string:user>")
+api.add_resource(GetAllMessageApi, "/message-system/all_messages/<string:user>")
 api.add_resource(AllUnreadMessageApi, "/message-system/all_unread_messages/<string:user>")
 api.add_resource(ReadMessageApi, "/message-system/reading_message/")
 api.add_resource(DeleteMessageApi, "/message-system/delete_message/<string:user>/<string:owner>")
@@ -78,5 +98,6 @@ api.add_resource(DeleteMessageApi, "/message-system/delete_message/<string:user>
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
-    session.pop("user", None)
+
+
 

@@ -1,1 +1,1 @@
-web: gunicorn --chdir ./MessagingSystemMission run:server
+web: honcho -f ProcfileHoncho start

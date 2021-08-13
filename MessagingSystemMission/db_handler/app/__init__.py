@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restful import Api
+from flask_session import Session
 from MessagingSystemMission.db_handler.app.models.messages_model import db
 from MessagingSystemMission.db_handler.app.resources.users_api import UsersApi
 from MessagingSystemMission.db_handler.app.resources.all_message_api import GetMessageApi
@@ -12,7 +13,6 @@ from MessagingSystemMission.db_handler.app.resources.saving_messages_api import 
 def create_app():
     app = Flask(__name__)
     api = Api(app)
-
     # config and init the db
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     db.init_app(app)

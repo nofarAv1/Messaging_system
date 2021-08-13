@@ -11,6 +11,9 @@ class Constants:
 
     # RESPONSE FIELDS
     RESPONSE = "Response"
+    STATUS_CODE = "status_code"
+    STATUS_DESCRIPTION = "status_description"
+    MESSAGE_CONTENT = "message_content"
 
     # TYPES OF RESPONSES
     REQUEST_TO_LOGIN = "Please Login first!"
@@ -26,6 +29,9 @@ class Constants:
     FAILED_GET_UNREAD_MESSAGES = "Failed to get unread messages, Try again later"
     FAILED_DELETE_MESSAGE = "Failed to delete messages, Try again later"
     MESSAGE_DELETE_SUCCESSFULLY = "Message delete successfully"
+    GET_ALL_MESSAGES_SUCCESSFULLY = "Get all messages successfully"
+    GET_ALL_UNREAD_MESSAGES_SUCCESSFULLY = "Get all messages successfully"
+    GET_LAST_MESSAGE_SUCCESSFULLY = "Get last message successfully"
     SUCCESS = "SUCCESS"
     SENDER_ID = "Sender_id"
     RECEIVER_ID = "Receiver_id"
@@ -34,8 +40,8 @@ class Constants:
     # URLS:
     INSERT_USER_URL = "http://localhost:5000/db-api/insert_user/"
     INSERT_MESSAGE_URL = "http://localhost:5000/db-api/insert_message/"
-    GET_ALL_MESSAGES = "http://localhost:5000/db-api/all_messages/"
-    GET_ALL_UNREAD_MESSAGE = "http://localhost:5000/db-api/unread_messages/"
+    GET_ALL_MESSAGES_URL = "http://localhost:5000/db-api/all_messages/"
+    GET_ALL_UNREAD_MESSAGE_URL = "http://localhost:5000/db-api/unread_messages/"
     URL_READ_MESSAGE = "http://localhost:5000/db-api/read_message/"
     DELETE_MESSAGE = "http://localhost:5000/db-api/delete_message/"
 

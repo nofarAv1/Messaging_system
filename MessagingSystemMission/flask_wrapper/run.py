@@ -8,8 +8,8 @@ def home():
     return "Welcome to Flask Wrapper"
 
 # flask 1 is messages_handler
-@app.route("/message/")
-@app.route("/message/<path:path>")
+@app.route("/flask1/")
+@app.route("/flask1/<path:path>")
 def flask1(path=""):
     return request.urlopen("http://localhost:5001/" + path).read()
 

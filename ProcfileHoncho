@@ -1,5 +1,5 @@
 flask_wrapper: cd MessagingSystemMission/flask_wrapper && gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent run:app
-message_handler: cd MessagingSystemMission/messages_handler && gunicorn -w 4 -b 0.0.0.0:5001 -k gevent run:app
-db_handler: cd MessagingSystemMission/db_handler && gunicorn -w 4 -b 0.0.0.0:5002 -k gevent run:app
+flask1: cd MessagingSystemMission/messages_handler && gunicorn -w 4 -b 0.0.0.0:5001 -k gevent run:app
+flask2: cd MessagingSystemMission/db_handler && gunicorn -w 4 -b 0.0.0.0:5002 -k gevent run:app
 
 

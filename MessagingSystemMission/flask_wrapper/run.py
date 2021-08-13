@@ -13,11 +13,11 @@ def home():
 def flask1(path=""):
     return request.urlopen("http://localhost:5001/" + path).read()
 
-# # flask2 is db_handler
-# @app.route("/db/")
-# @app.route("/db/<path:path>")
-# def flask2(path=""):
-#     return request.urlopen("http://localhost:5002/" + path).read()
+# flask2 is db_handler
+@app.route("/db/")
+@app.route("/db/<path:path>")
+def flask2(path=""):
+    return request.urlopen("http://localhost:5002/" + path).read()
 
 
 if __name__ == "__main__":

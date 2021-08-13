@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__)
     api = Api(app)
     # config and init the db
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messages.db'
     db.init_app(app)
 
     # routes

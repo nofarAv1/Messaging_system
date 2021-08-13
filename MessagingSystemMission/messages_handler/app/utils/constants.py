@@ -11,6 +11,9 @@ class Constants:
 
     # RESPONSE FIELDS
     RESPONSE = "Response"
+    STATUS_CODE = "status_code"
+    STATUS_DESCRIPTION = "status_description"
+    MESSAGE_CONTENT = "message_content"
 
     # TYPES OF RESPONSES
     REQUEST_TO_LOGIN = "Please Login first!"
@@ -26,6 +29,7 @@ class Constants:
     FAILED_GET_UNREAD_MESSAGES = "Failed to get unread messages, Try again later"
     FAILED_DELETE_MESSAGE = "Failed to delete messages, Try again later"
     MESSAGE_DELETE_SUCCESSFULLY = "Message delete successfully"
+    GET_ALL_MESSAGES = "Get all messages"
     SUCCESS = "SUCCESS"
     SENDER_ID = "Sender_id"
     RECEIVER_ID = "Receiver_id"

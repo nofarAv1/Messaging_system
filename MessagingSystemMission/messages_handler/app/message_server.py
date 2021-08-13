@@ -5,6 +5,7 @@ from MessagingSystemMission.logger.logger import logger
 from MessagingSystemMission.messages_handler.app.utils.constants import Constants
 
 
+
 def saving_user(data: dict) -> Optional[requests.models.Response]:
     """
     This function send a post request for db_api to insert new user
@@ -47,19 +48,19 @@ def write_message(data: dict) -> dict:
         return {Constants.RESPONSE: Constants.ERROR_OCCURRED_SEND_MESSAGE}
 
 
-def get_all_messages(user: str) -> dict:
+def get_all_messages(user: str) -> list:
     """
     This function send a request for GetMessageApi and get all the message of the given user
     :param user: using for get all the messages of this user
-    :return:
+    :return: If messages exist list of them else empty list
     """
     url_all_messages = Constants.GET_ALL_MESSAGES + user
     res = requests.get(url=url_all_messages)
     if res is not None and res.status_code == 200:
         res_as_json = json.loads(res.text)
-        return {Constants.RESPONSE: res_as_json[Constants.MESSAGES_CONTENT]}
+        return res_as_json[Constants.MESSAGES_CONTENT]
     else:
-        return {Constants.RESPONSE: Constants.FAILED_GET_ALL_MESSAGE}
+        return []
 
 
 def get_all_unread_messages(user: str) -> dict:
